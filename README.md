@@ -63,12 +63,17 @@ Remember to adjust any file paths in the notebook code to point to `'/content/ma
 
 ## **Code Structure Diagrams:**
 
-### [Main Code Component Name]
+### Chart of Top Data Points
 
 **Description:**
 (Place a description of the main code component here.)
 
-### [Additional Code Component Name]
+### Stock Correlation Heatmap 
+
+**Description:**
+(Place a description of additional code components here.)
+
+### Top Performing Portfolios
 
 **Description:**
 (Place a description of additional code components here.)
