@@ -63,28 +63,33 @@ Remember to adjust any file paths in the notebook code to point to `'/content/ma
 
 ## **Code Structure Diagrams:**
 
-### Chart of Top Data Points
+![Flowchart of Code Structure](images/ProjectCodeStructure.png "Project Code Structure")
 
 **Description:**
-(Place a description of the main code component here.)
+The diagram presents the structural flow of your portfolio analysis project. It begins by reading financial data from a CSV file into a DataFrame, followed by data manipulation to calculate daily stock returns. Subsequent steps involve setting investment parameters, running portfolio simulations, and calculating key performance metrics like returns, volatility, and the Sharpe Ratio. Finally, the project visualizes the data through an efficient frontier plot and a heatmap of stock correlations, culminating in the display of top-performing portfolios for investment decision-making. This systematic approach showcases the project's capability to leverage statistical analysis and visualization for optimized portfolio management.
+
+## **Software Functionality, Output, and Testing:**
+
+### Chart of Top Data Points
+
+![Top 5 Data Points](images/GraphPortsCML.png "Top 5 Data Points")
+
+**Description:**
+The image is a plot of an Efficient Frontier, which is an essential concept in modern portfolio theory. The graph depicts a scatter plot of possible portfolios in terms of their expected return (y-axis) and volatility (x-axis), with different colors representing the Sharpe Ratio of each portfolio. The Capital Market Line (CML), shown in red, represents portfolios that optimally combine the market portfolio with the risk-free asset for maximum return per unit of risk. The top 5 portfolios, marked with stars, indicate the best risk-adjusted return as measured by the Sharpe Ratio. This visualization helps in identifying the most efficient portfolios, guiding investors to make informed decisions by balancing risk and return.
 
 ### Stock Correlation Heatmap 
 
+![Stock Correlation Heatmap](images/Heatmap.png "Stock Correlation Heatmap")
+
 **Description:**
-(Place a description of additional code components here.)
+The image is a correlation heatmap, a crucial tool for understanding the relationships between different stocks in a portfolio. Each cell represents the correlation coefficient between the stock prices of two companies, ranging from -1 to 1, where 1 indicates a perfect positive correlation, -1 indicates a perfect negative correlation, and 0 indicates no correlation. In the context of your project, this heatmap is valuable for portfolio diversification, as it helps identify which stocks move together and which move inversely. This information can be used to optimize the portfolio by combining assets to minimize risk and enhance return.
 
 ### Top Performing Portfolios
 
+![Top Performing Portfolios](images/TopStocks.png "Top Performing Ports")
+
 **Description:**
-(Place a description of additional code components here.)
-
-## **Software Functionality and Testing:**
-
-- Test Case 1
-- Test Case 2
-- Test Case 3
-
-(Each test case will be elaborated upon with details of the functionality tested and results obtained. Please insert test results or related screenshots here.)
+The image shows a table of top-performing stock portfolios, each evaluated by their return, volatility, weight allocation among different stocks, and the Sharpe Ratio. The Sharpe Ratio is particularly significant as it indicates the risk-adjusted return, with higher values being more desirable. This table is instrumental for our project as it helps identify which combinations of stocks could potentially yield the highest returns for a given level of risk, thereby aiding in the construction of an optimized investment portfolio. The clear presentation of the weights and symbols allows for straightforward replication and analysis of these portfolio configurations in real-world investing.
 
 ## **Project Discussion and Conclusion:**
 
