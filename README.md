@@ -13,8 +13,8 @@
 
 We are planning on making investment planning software. 
 Software for planning things contributes to happiness by helping organize your life and taking away from chaos. 
-The software will implement statistical and optimization algorithms to decide how to allocate money to invest into assets. 
-The basis of our model is Modern Portfolio Theory(MPT), which is a mathematical model often used by investors to maximize returns and minimize risk or variance. We improved this modeling with a metaheuristic technique called Particle Swarm Optimization (PSO) algorithm to solve for a portfolio with minimal risk. At the end, the program gives tickers of stocks and a percentage to invest in each of those stocks for an optimal portfolio based on our model. 
+The software will implement statistical and graph algorithms to decide how to allocate money to invest into assets. 
+A divide and conquer method will be used for the sharpe ratio as a way to compare stocks and their efficacy in a portfolio.
 The analysis will show if stocks are positively or negatively correlated and if there are groups of assets that behave similarly.
 An investor can use the information given to diversify their portfolios and minimize risk of losses by having all eggs in one basket.
 
@@ -25,35 +25,11 @@ An investor can use the information given to diversify their portfolios and mini
 
 ## **Project Goals:**
 
-The primary objective of this project is to create a robust investment planning tool that utilizes advanced statistical and optimization algorithms to aid in effective asset allocation. Our goal is to simplify investment decisions, provide strategic diversification of portfolios, and minimize financial risks for investors. By minimizing this financial risk and helping formulate investment strategy we can help increase happiness by reducing stress.
+The primary objective of this project is to create a robust investment planning tool that utilizes advanced statistical and graph algorithms to aid in effective asset allocation. Our goal is to simplify investment decisions, provide strategic diversification of portfolios, and minimize financial risks for investors. By minimizing this financial risk we can help increase happiness by reducing stress.
 
 ## **Project Significance:**
 
-This project is significant as it addresses the need for a methodical approach to investment planning. By harnessing the power of Modern Portfolio Theory and Particle Swarm Optimization, ZenWealth is set to offer investors a scientific approach to understanding stock correlations and market trends, hence contributing to a safer investing space and increasing happiness.
-
-## **Modern Portfolio Theory(MPT):**
-
-MPT is the mathematical framework we use to conceptualize building a portfolio that maximized returns with a reasonable level of risk. The main idea of MPT is diversification by achieving an optimal mix of investments. Some investments are high risk and high return while others are low risk and low return. According to MPT, an optimal portfolio will have a combination of these types of investments with the portfolio overall having maximum return with minimal risk. For evaluating, we use statistical measures such as variance(the squared deviation of stock return) and correlation(the relationship of price action between stocks). 
-
-## **Particle Swarm Optimization(PSO):**
-
-We apply PSO in our program to optimize based on the framework of MPT. Particle Swarm Optimization algorithms are inspired by phenoma observed in nature, particularly the coordination of large flocks of birds and schools of fish. For example, birds individually use their cognitive and social abilities to search and move towards objectives such as food and water. Similarly, this optimization technique initializes with a 'swarm' stochastically and then each particle within the swarm moves toward possible solutions. 
-
-## **Descriptions of Different Part of the Program:**
-
-### **Input Parameters**
-The first code chunk of the notebook is to set parameters for the program such as the dates to pull stock data from and things like number of iterations and setting a goal for minimum risk of maximum sharpe value.
-
-### **Import Stock Data**
-We used the yfinance library which can pull data from Yahoo Finance to create datasets for our program. We made functions to pull data in the StockPull.py file to be used in the main notebook file. 
-
-### **Implement Modern Portfolio Theory**
-Then we set up the dataframes used later in the program using the data extracted earlier. The dataframes created are based on MPT. We use the pandas library for matrix manipulation and create dataframes for returns, excess returns, and expected returns.
-
-### **Functions for Evaluating Financial Values**
-
-### **Import Stock Data**
-
+This project is significant as it addresses the need for a methodical approach to investment planning. By harnessing the power of Divide and Conquer algorithms, ZenWealth is set to offer investors a scientific approach to understanding stock correlations and market trends, hence contributing to a safer investing space and increasing happiness.
 
 ## **Step-by-Step Instructions to Run the Notebook in Google Colab**
 
@@ -79,9 +55,8 @@ Then we set up the dataframes used later in the program using the data extracted
 
 ### **Step 4: Run the Notebook in Google Colab**
 1. Once both the notebook and the CSV file are uploaded, you can run the notebook.
-2. Additional information and documentation on steps can be found in test boxes within the notebook.
-3. To run all cells in the notebook, click on 'Runtime' in the top menu and select 'Run all'.
-4. To run individual cells, click on the cell and press 'Shift + Enter' or click the play button on the left side of the cell.
+2. To run all cells in the notebook, click on 'Runtime' in the top menu and select 'Run all'.
+3. To run individual cells, click on the cell and press 'Shift + Enter' or click the play button on the left side of the cell.
 
 Remember to adjust any file paths in the notebook code to point to `'/content/master_data.csv'` for the CSV file if needed.
 
@@ -114,26 +89,22 @@ The image is a correlation heatmap, a crucial tool for understanding the relatio
 ![Top Performing Portfolios](images/TopStocks.png "Top Performing Ports")
 
 **Description:**
-The image shows a table of top-performing stock portfolios, each evaluated by their return, volatility, weight allocation among different stocks, and the Sharpe Ratio. The Sharpe Ratio is particularly significant as it indicates the risk-adjusted return, with higher values being more desirable. This table is instrumental for our project as it helps identify which combinations of stocks could potentially yield the highest returns for a given level of risk, thereby aiding in the construction of an optimized investment portfolio. The clear presentation of the weights and symbols allows for straightforward replication and analysis of these portfolio configurations in real-world investing.
+The image shows a table of top-performing stock portfolios, each evaluated by their return, volatility, weight allocation among different stocks, and the Sharpe Ratio. The Sharpe Ratio is particularly significant as it indicates the risk-adjusted return, with higher values being more desirable. The **'calculate_sharpe_ratio_in_chunks'** function divides the portfolio DataFrame into chunks and calculates the Sharpe Ratio for each chunk. This is beneficial when dealing with a very large number of portfolios as it could potentially improve memory usage and performance.This table is instrumental for our project as it helps identify which combinations of stocks could potentially yield the highest returns for a given level of risk, thereby aiding in the construction of an optimized investment portfolio. The clear presentation of the weights and symbols allows for straightforward replication and analysis of these portfolio configurations in real-world investing.
 
 ## **Project Discussion and Conclusion:**
 
 **Challenges:**
 
-- **Data Quality and Completeness:** A significant challenge in developing investment planning software is ensuring the quality and completeness of the input data. Financial datasets can often be incomplete, outdated, or have inconsistencies. We implemented rigorous data validation and cleansing processes, but the challenge underscores the importance of choosing quality data and not just the easiest data to find. Also, financial institutions often soley have access to the highest utility financial data to support decisions creating a knowledge gap between retail and institutional investors.
+- **Data Quality and Completeness:** A significant challenge in developing investment planning software is ensuring the quality and completeness of the input data. Financial datasets can often be incomplete, outdated, or have inconsistencies. We implemented rigorous data validation and cleansing processes, but the challenge underscores the importance of choosing quality data and not just the easiest data to find.
 
-- **Algorithmic Complexity:** The PSO algorithm and associated methods can become computationally intensive with large datasets, which can lead to performance issues. Optimizing these algorithms for efficiency without sacrificing accuracy was a complex task that required careful profiling and refactoring of our code. We were able to do this from in class resources as well as some found online. This process certainly helped speed up the algorithm which is nice with a data set this large.
+- **Algorithmic Complexity:** Computing the functions such as the sharpe ratio can prove to be tedious and time-consuming tasks. By using the divide and conquer styled approach, we found that we could reduce run time and computational needs. This is the best for us and our userbase as we are trying to reduce the stress that comes with choosing correct stocks so we figured by making a more effecient way to compute the sharpe ratio it would help increase happiness.
 
 **Key Learnings:**
 
-- The application of the Particle Swarm Optimization (PSO) algorithm was a direct extension of our classroom discussions on greedy/effiecient inexact algorithms. By exploring greedy algorithms in an academic setting, we understood its potential in identifying efficient pathways and connections, which we have applied to find optimal weights and stocks for creating a portfolio. We also used the concept of randomization to give a good starting point for the algorithm similar to when we explored using randomization for sorting algorithms like quicksort. The program is initialized with values stochastically and then the search space is explored iteritively similar to how we stochastically chose pivots for quicksort. This project became a practical platform to visualize how efficient inexact algorithms can be used beyond theoretical examples, specifically in optimizing weights based on stocks' historical price movements with the aid of heuristics, stochastics, and . It was enlightening to see concepts from class transform into a tools that can potentially guide financial decisions in the real world.
-
+- The exploration of the Divide and Conquer algorithm was a key highlight of our classroom discussions on algorithmic strategies. By delving into this approach in an educational setting, we gained insights into its capability to break down complex problems into simpler, manageable units, which we have applied to optimize the calculation of financial metrics like the Sharpe Ratio. Our project served as a practical application to illustrate how the Divide and Conquer technique can streamline processes in real-world scenarios, specifically in the efficient computation of portfolio analytics. Witnessing a fundamental algorithmic concept evolve into a functional framework for financial analysis was a testament to the practical utility of theoretical computer science concepts in investment management.
 
 **Final Thoughts:**
 
-The ZenWealth project has been more than just a venture into the intricacies of financial software development; it has been a journey into stress-free financial planning. In our academic endeavors, we often discussed the theoretical aspects of algorithms like the Particle Swarm Optimization (PSO), but applying it to real-world financial data brought a new level of satisfaction. By creating a tool that simplifies the complexity of investment portfolios, we've managed to turn the stress of investment decisions into a structured process that promotes financial well-being and peace of mind. It's been a remarkable process to see our classroom discussions on MST translate into a system that can map out the financial landscape, helping investors navigate through their options with greater confidence and less anxiety.
+The ZenWealth project has been more than just a venture into the intricacies of financial software development; it has been a journey into stress-free financial planning. In our academic endeavors, we often discussed the theoretical aspects of algorithms like Divide and Conquer, but applying it to real-world financial data brought a new level of satisfaction. By creating a tool that simplifies the complexity of investment portfolios using the Divide and Conquer approach, we've managed to turn the stress of investment decisions into a structured process that promotes financial well-being and peace of mind. It's been a remarkable process to see our classroom discussions on Divide and Conquer translate into a system that can analyze the financial landscape, helping investors navigate through their options with greater confidence and less anxiety.
 
-Tackling the challenges of data integrity and computational efficiency head-on, we've developed not just software but a new understanding of the power of applied knowledge. The hurdles we encountered — from ensuring the accuracy of vast datasets to optimizing the MST algorithm for speed without loss of precision — have taught us the resilience needed in the face of complex problems. This project has laid down a foundation for future financial tools that can further demystify portfolio management. As students and now developers, we are proud to contribute a tool to the investment community that not only draws from our academic learnings but also adds a tangible layer of happiness to the user's investment journey by mitigating risk and uncertainty.
-
-
-
+Tackling the challenges of data integrity and computational efficiency head-on, we've developed not just software but a new understanding of the power of applied knowledge. The hurdles we encountered — from ensuring the accuracy of vast datasets to optimizing the Divide and Conquer algorithm for speed without loss of precision — have taught us the resilience needed in the face of complex problems. This project has laid down a foundation for future financial tools that can further demystify portfolio management. As students and now developers, we are proud to contribute a tool to the investment community that not only draws from our academic learnings but also adds a tangible layer of happiness to the user's investment journey by mitigating risk and uncertainty.
